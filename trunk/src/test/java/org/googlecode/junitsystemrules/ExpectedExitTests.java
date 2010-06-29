@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 public class ExpectedExitTests {
 
 	@Rule
-	public ExpectedExit exit = new ExpectedExit();
+	public ExpectedExit exit = ExpectedExit.none();
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();

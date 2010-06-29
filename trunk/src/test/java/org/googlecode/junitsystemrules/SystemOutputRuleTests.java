@@ -1,14 +1,13 @@
 package org.googlecode.junitsystemrules;
 
-import org.googlecode.junitsystemrules.SystemOutputRule.SystemOutType;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class SystemOutputRuleTests {
 	@Rule
-	public SystemOutputRule sysout = new SystemOutputRule(SystemOutType.Out);
-	public SystemOutputRule syserr = new SystemOutputRule(SystemOutType.Error);
+	public SystemOutputRule sysout = SystemOutputRule.sysOut();
+	public SystemOutputRule syserr = SystemOutputRule.sysErr();
 
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
