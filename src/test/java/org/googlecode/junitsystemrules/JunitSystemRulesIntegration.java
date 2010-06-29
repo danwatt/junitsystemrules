@@ -1,16 +1,15 @@
 package org.googlecode.junitsystemrules;
 
-import org.googlecode.junitsystemrules.SystemOutputRule.SystemOutType;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
 public class JunitSystemRulesIntegration {
 	@Rule
-	public ExpectedExit expectedExit = new ExpectedExit();
+	public ExpectedExit expectedExit = ExpectedExit.none();
 
 	@Rule
-	public SystemOutputRule sysout = new SystemOutputRule(SystemOutType.Out);
+	public SystemOutputRule sysout = SystemOutputRule.sysOut();
 	
 	@Test
 	@Ignore
