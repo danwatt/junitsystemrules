@@ -41,6 +41,10 @@ public class ExpectedExit implements MethodRule {
 	public ExpectedExit() {
 	}
 
+	public static ExpectedExit none() {
+		return new ExpectedExit();
+	}
+
 	public Statement apply(final Statement base, FrameworkMethod method,
 			Object target) {
 		return new Statement() {
@@ -60,10 +64,9 @@ public class ExpectedExit implements MethodRule {
 					System.setSecurityManager(old);
 				}
 				if (expected) {
-					Assert
-							.assertTrue(
-									"System.exit was supposed to be called, but wasn't",
-									happened);
+					Assert.assertTrue(
+							"System.exit was supposed to be called, but wasn't",
+							happened);
 					Assert.assertEquals("System.exit(" + expectedValue
 							+ ") was expected, instead was called with "
 							+ actual, expectedValue, actual);

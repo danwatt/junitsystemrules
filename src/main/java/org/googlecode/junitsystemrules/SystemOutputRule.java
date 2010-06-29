@@ -23,6 +23,13 @@ public class SystemOutputRule extends Verifier {
 	private final SystemOutType type;
 	private List<Matcher<String>> expectations = new ArrayList<Matcher<String>>();
 
+	public static SystemOutputRule sysOut() {
+		return new SystemOutputRule(SystemOutType.Out);
+	}
+	public static SystemOutputRule sysErr() {
+		return new SystemOutputRule(SystemOutType.Error);
+	}
+	
 	public SystemOutputRule(SystemOutType type) {
 		this.type = type;
 		outputStream = new ByteArrayOutputStream();
